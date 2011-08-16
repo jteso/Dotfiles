@@ -1,0 +1,87 @@
+# ----------------------------------------------------------------------
+# CONFIGURATION
+# ----------------------------------------------------------------------
+# setup some basic variables
+: ${HOME=~}
+: ${LOGNAME=$(id -un)}
+: ${UNAME=$(uname)}
+
+# complete hostnames from
+: ${HOSTFILE=~/.ssh/known_hosts}
+
+# readline inputrc
+: ${INPUTRC=~/.inputrc}
+
+# ----------------------------------------------------------------------
+#  SHELL OPTIONS
+# ----------------------------------------------------------------------
+
+# bring in system bashrc
+test -r /etc/bashrc &&
+      . /etc/bashrc
+
+# notify of bg job completion immediately
+set -o notify
+
+# shell opts. see bash(1) for details
+shopt -s cdspell >/dev/null 2>&1
+shopt -s extglob >/dev/null 2>&1
+shopt -s histappend >/dev/null 2>&1
+shopt -s hostcomplete >/dev/null 2>&1
+shopt -s interactive_comments >/dev/null 2>&1
+shopt -u mailwarn >/dev/null 2>&1
+shopt -s no_empty_cmd_completion >/dev/null 2>&1
+
+# fuck that you have new mail shit
+unset MAILCHECK
+
+# disable core dumps
+ulimit -S -c 0
+
+# default umask
+umask 0022
+
+# ----------------------------------------------------------------------
+# COLORS AND PROMPT
+# ----------------------------------------------------------------------
+# Colors from http://wiki.archlinux.org/index.php/Color_Bash_Prompt
+# misc
+NO_COLOR='\e[0m' #disable any colors
+# regular colors
+BLACK='\e[0;30m'
+RED='\e[0;31m'
+GREEN='\e[0;32m'
+YELLOW='\e[0;33m'
+BLUE='\e[0;34m'
+MAGENTA='\e[0;35m'
+CYAN='\e[0;36m'
+WHITE='\e[0;37m'
+# emphasized (bolded) colors
+EBLACK='\e[1;30m'
+ERED='\e[1;31m'
+EGREEN='\e[1;32m'
+EYELLOW='\e[1;33m'
+EBLUE='\e[1;34m'
+EMAGENTA='\e[1;35m'
+ECYAN='\e[1;36m'
+EWHITE='\e[1;37m'
+# underlined colors
+UBLACK='\e[4;30m'
+URED='\e[4;31m'
+UGREEN='\e[4;32m'
+UYELLOW='\e[4;33m'
+UBLUE='\e[4;34m'
+UMAGENTA='\e[4;35m'
+UCYAN='\e[4;36m'
+UWHITE='\e[4;37m'
+# background colors
+BBLACK='\e[40m'
+BRED='\e[41m'
+BGREEN='\e[42m'
+BYELLOW='\e[43m'
+BBLUE='\e[44m'
+BMAGENTA='\e[45m'
+BCYAN='\e[46m'
+BWHITE='\e[47m'
+
+PS1="\n:\w \[$EBLACK\]\$(vcprompt)\[$NO_COLOR\] \n→ "

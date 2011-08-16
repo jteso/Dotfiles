@@ -1,0 +1,117 @@
+# ----------------------------------------------------------------------
+# ALIASES / FUNCTIONS
+# ----------------------------------------------------------------------
+#----------------------
+# (A) Personal Aliases
+#----------------------
+
+alias tu='top -o cpu' # cpu
+alias tm='top -o vsize' # memory
+alias du1='du -h --max-depth=1'
+alias fn='find . -name'
+alias hi='history | tail -20'
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias restart='. ~/.bashrc'
+alias cls='clear'
+
+#hadoop
+alias hdfs-start='$HADOOP_HOME/bin/start-all.sh'
+alias hdfs-stop='$HADOOP_HOME/bin/stop-all.sh'
+alias hdfs='hadoop fs'
+alias hbase-start='$HBASE_HOME/bin/start-hbase.sh'
+alias hbase-stop='$HBASE_HOME/bin/stop-hbase.sh'
+
+
+
+# -> Prevents accidentally clobbering files.
+alias mkdir='mkdir -p'
+alias h='history'
+alias j='jobs -l'
+alias which='type -a'
+alias ..='cd ..'
+alias path='echo -e ${PATH//:/\\n}'
+alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
+alias print='/usr/bin/lp -o nobanner -d $LPDEST'
+            # Assumes LPDEST is defined (default printer)
+alias pjet='enscript -h -G -fCourier9 -d $LPDEST'
+            # Pretty-print using enscript
+
+alias du='du -kh'       # Makes a more readable output.
+alias df='df -kTh'
+
+#-------------------------------------------------------------
+# The 'ls' family (this assumes you use a recent GNU ls)
+#-------------------------------------------------------------
+
+#alias ls='ls -hF --color'  # add colors for filetype recognition
+alias la='ls -Al'          # show hidden files
+alias lx='ls -lXB'         # sort by extension
+alias lk='ls -lSr'         # sort by size, biggest last
+alias lc='ls -ltcr'        # sort by and show change time, most recent last
+alias lu='ls -ltur'        # sort by and show access time, most recent last
+alias lt='ls -ltr'         # sort by date, most recent last
+alias lm='ls -al |more'    # pipe through 'more'
+alias lr='ls -lR'          # recursive ls
+alias dir='ls -alFG'
+alias tree='tree -Csu'     # nice alternative to 'recursive ls'
+
+
+
+#-------------------------------------------------------------
+# tailoring 'less'
+#-------------------------------------------------------------
+
+alias more='less'
+export PAGER=less
+export LESSCHARSET='latin1'
+export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
+   # Use this if lesspipe.sh exists
+export LESS='-i -N -w  -z-4 -g -e -M -X -F -R -P%t?f%f \
+:stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
+
+
+#-------------------------------------------------------------
+# spelling typos - highly personal and keyboard-dependent :-)
+#-------------------------------------------------------------
+
+alias xs='cd'
+alias vf='cd'
+alias moer='more'
+alias moew='more'
+alias kk='ll'
+
+#-------------------------------------------------------------
+# A few fun ones
+#-------------------------------------------------------------
+
+
+function xtitle()      # Adds some text in the terminal frame.
+{
+    case "$TERM" in
+        *term | rxvt)
+            echo -n -e "\033]0;$*\007" ;;
+        *)  
+            ;;
+    esac
+}
+
+# aliases that use xtitle
+alias top='xtitle Processes on $HOST && top'
+alias make='xtitle Making $(basename $PWD) ; make'
+alias ncftp="xtitle ncFTP ; ncftp"
+
+#-------------------------------------------------------------
+# RVM
+#-------------------------------------------------------------
+[[ -s "/Users/javi/.rvm/scripts/rvm" ]] && source "/Users/javi/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+
+# -------------------------------------------------------------------
+# DEVELOPMENT FUNCTIONS ==> LEARNING SOMEONE ELSE CODE
+# -------------------------------------------------------------------
+#invoke it as: openall *.java
+openall(){
+	VAR_FILES=`find . -name $1`; export VAR_FILES; mate -w $VAR_FILES &
+}
+
