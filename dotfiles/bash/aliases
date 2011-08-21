@@ -4,7 +4,7 @@
 #----------------------
 # (A) Personal Aliases
 #----------------------
-
+alias cdp='cd ~/Development/rails_projects/first_app'
 alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
 alias du1='du -h --max-depth=1'
@@ -58,8 +58,13 @@ alias dir='ls -lFG'
 alias dira='ls -alFG'
 alias tree='tree -Csu'     # nice alternative to 'recursive ls'
 
-
-
+#-------------------------------------------------------------
+# GIT
+#-------------------------------------------------------------
+alias gitl='git log --pretty=oneline'
+alias gits='git status'
+alias gitls='git ls-tree master^{tree}'        #showing trees
+alias gitlsr='git ls-tree -r -t master^{tree}' #showing trees recursively
 #-------------------------------------------------------------
 # tailoring 'less'
 #-------------------------------------------------------------
@@ -104,9 +109,14 @@ alias make='xtitle Making $(basename $PWD) ; make'
 alias ncftp="xtitle ncFTP ; ncftp"
 
 #-------------------------------------------------------------
-# RVM
+# Mate
 #-------------------------------------------------------------
-[[ -s "/Users/javi/.rvm/scripts/rvm" ]] && source "/Users/javi/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+export ALIASES='~/bin/dotfiles/bash/aliases'
+export ENVIRO='~/bin/dotfiles/bash/env'
+
+alias matea='mate $ALIASES'
+alias matee='mate $ENVIRO'
+
 
 # -------------------------------------------------------------------
 # DEVELOPMENT FUNCTIONS ==> LEARNING SOMEONE ELSE CODE
@@ -115,4 +125,7 @@ alias ncftp="xtitle ncFTP ; ncftp"
 openall(){
 	VAR_FILES=`find . -name $1`; export VAR_FILES; mate -w $VAR_FILES &
 }
-
+#-------------------------------------------------------------
+# RVM
+#-------------------------------------------------------------
+[[ -s "/Users/javi/.rvm/scripts/rvm" ]] && source "/Users/javi/.rvm/scripts/rvm"  # This loads RVM into a shell session.
