@@ -1,0 +1,53 @@
+#!/bin/bash
+# Arguments = -t text  -p process 
+usage()
+{
+cat << EOF
+usage: $0 options
+
+This script is a quick and dirty alternative to the program filemon that I used to have on windows.
+
+OPTIONS:
+   -t      Print all lines containing this text. You can pass a regular expression here 
+   -p      Print all lines that belongs to a given process
+   -h      Print what you are seeing now
+EOF
+}
+
+TEXT=""
+PROCESS=""
+
+while getopts "t:p:h"  OPTION
+do
+	case "$OPTION" in
+		h)
+			usage
+			exit 1
+			;;
+		t)
+			TEXT=$OPTARG
+			;;
+		p)
+			PROCESS=$OPTARG
+			;;
+		?)
+		    usage
+		    exit
+		    ;;
+		
+    esac
+done
+
+# If Text AND Process are not empty	
+if [ -n "$TEXT" ]; then
+	TEXT=".*$TEXT"
+fi
+
+if [ -n "$PROCESS" ]; then
+	PROCESS=".*$PROCESS"
+fi	
+
+MODE="\<read\>|\<write\>|\<open\>|\<close\>"
+
+
+sudo fs_usage -e -f filesys egrep Terminal | egrep -i "($MODE)$TEXT$PROCESS"
