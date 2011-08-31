@@ -1,0 +1,34 @@
+FILEMON(1) -- monitors and displays in real-time all file system activity
+========================================================================
+## SYNOPSYS
+	filemon [-h] [-t <TEXT> | -p <PROCESS>]
+
+## DESCRIPTION
+	The `filemon` script presents an ongoing display of all processes activity.  
+	It requires root privileges due to  the kernel tracing facility it uses to operate.  
+	This script is just a wrap of the <fs_usage> command with the options that I use the most.  
+  
+These options are as follows:
+
+ `-h`:	Display a help page  
+ `-p` <PROCESS>: Filter out the process activity by process name  
+ `-t` <TEXT>: Filter out the process activity by a certain text. Intended to pass here file names, directories,...  
+
+## SAMPLE USAGE
+
+$ filemon` expects the same result than `sudo fs_usage -e -f filesys Terminal  
+$ filemon -t routes.rb -p ruby` show me everytime ruby process tries to open|read|write|close a file named routes.rb 
+		
+## BUGS
+There are no bugs.
+	
+## AUTHOR
+
+[Javier Teso][personalweb-url]
+
+[personalweb-url]: http://jteso.com
+
+
+## SEE ALSO
+[fs_usage(1)][http://man.cx/fs_usage(1)]  
+[grep(1)][http://man.cx/grep(1)]
