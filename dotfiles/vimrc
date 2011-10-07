@@ -89,8 +89,8 @@ set wildmode=list:longest
 
 
 " Uncomment to use Jamis Buck's file opening plugin
-map <Leader>t :FuzzyFinderTextMate<Enter>
-
+"map <Leader>t :FuzzyFinderTextMate<Enter>
+map <Leader>t :FufFile<Enter>
 " See the CTags (class and methods) belonging to the current buffer
 map <Leader>st :TlistToggle<Enter>
 
