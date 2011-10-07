@@ -1,8 +1,10 @@
 " Example Vim graphical configuration.
 " Copy to ~/.gvimrc or ~/_gvimrc.
 
-" set guifont=Inconsolata:h25       " Font family and font size.
-" set guifont=Inconsolata\ 15       " Font family and font size.
+"if has("gui_mac") || has("gui_macvim")
+"  macmenu &File.New\ Tab     key=<Nop>
+"  map <silent><D-t> :FufFile **/<CR>
+"endif
 
 set antialias                     " MacVim: smooth fonts.
 set encoding=utf-8                " Use UTF-8 everywhere.

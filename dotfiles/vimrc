@@ -40,12 +40,32 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
-" UNCOMMENT TO USE
+""""""""""""""""""
+" FORMATING
+""""""""""""""""""
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
+set showmatch  					 " Show matching brackets.
+set mat=5  						 " Bracket blinking.
+set laststatus=2                 " Show the status line all the time
+set autoindent
+imap <Tab> <C-N>                 " Autocompletion triggered by Ctrl+N
+imap <S-Tab> <C-P>
 
-set laststatus=2                  " Show the status line all the time
+" Indentention
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
+
+
+ 
+" gvim specific
+set mousehide  " Hide mouse after chars typed
+set mouse=a  " Mouse in all modes
+
+
+
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
@@ -53,7 +73,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 colorscheme emacs 
 set guifont=Inconsolata:h18
 
-" Tab mappings.
+" Tab mappings 
 map <leader>tt :tabnew<cr>
 map <leader>te :tabedit
 map <leader>tc :tabclose<cr>
@@ -64,15 +84,17 @@ map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
 
+" Tab-complete file names
+set wildmode=list:longest
+
+
 " Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
+map <Leader>t :FuzzyFinderTextMate<Enter>
 
-" Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
+" See the CTags (class and methods) belonging to the current buffer
+map <Leader>st :TlistToggle<Enter>
 
-"vnoremap ; :
-"vnoremap : ;
+
 
 " Automatic fold settings for specific files. Uncomment to use.
 " autocmd FileType ruby setlocal foldmethod=syntax
