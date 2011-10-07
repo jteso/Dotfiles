@@ -65,6 +65,7 @@ alias gitl='git log --pretty=oneline'
 alias gits='git status'
 alias gitls='git ls-tree master^{tree}'        #showing trees
 alias gitlsr='git ls-tree -r -t master^{tree}' #showing trees recursively
+alias gitph='git push heroku master'
 #-------------------------------------------------------------
 # tailoring 'less'
 #-------------------------------------------------------------
@@ -124,6 +125,13 @@ alias matee='mate $ENVIRO'
 #invoke it as: openall *.java
 openall(){
 	VAR_FILES=`find . -name $1`; export VAR_FILES; mate -w $VAR_FILES &
+}
+# -------------------------------------------------------------------
+# RUBY GEMS
+# -------------------------------------------------------------------
+gemi(){
+echo "Installing the gem $1..."
+gem install $1 --install-dir /Users/Javi/.rvm/gems/ruby-1.9.2-head --no-ri --no-rdoc
 }
 #-------------------------------------------------------------
 # RVM

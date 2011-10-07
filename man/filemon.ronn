@@ -16,7 +16,8 @@ These options are as follows:
 
 ## SAMPLE USAGE
 
-$ filemon` expects the same result than `sudo fs_usage -e -f filesys Terminal  
+$ filemon` expects the same result than 
+> sudo fs_usage -e -f filesys Terminal  
 $ filemon -t routes.rb -p ruby` show me everytime ruby process tries to open|read|write|close a file named routes.rb 
 		
 ## BUGS
