@@ -57,8 +57,12 @@ imap <S-Tab> <C-P>
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
+" Cmd+Enter like in textmate"
+imap <D-Enter> <Esc>A<CR> 
 
-
+"Most Recent Used Documents
+cmap mru <Esc>:MRU<CR>
+"let MRU_Max_Entries = 20 
  
 " gvim specific
 set mousehide  " Hide mouse after chars typed
@@ -69,8 +73,10 @@ set mouse=a  " Mouse in all modes
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
-" colorscheme alternative chalk
-colorscheme emacs 
+
+colorscheme jellybeans
+
+
 set guifont=Inconsolata:h18
 
 " Tab mappings 
@@ -91,6 +97,7 @@ set wildmode=list:longest
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
 map <Leader>t :FufFile<Enter>
+
 " See the CTags (class and methods) belonging to the current buffer
 map <Leader>st :TlistToggle<Enter>
 
@@ -100,7 +107,12 @@ map <Leader>st :TlistToggle<Enter>
 " autocmd FileType ruby setlocal foldmethod=syntax
 " autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
+"Swith between windows
+" TODO
+
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
+
+
 
 
