@@ -5,6 +5,7 @@ set nocompatible                  " Must come first because it changes other opt
 
 silent! call pathogen#runtime_append_all_bundles()
 
+
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
 
@@ -40,9 +41,15 @@ set nobackup                      " Don't make a backup before overwriting a fil
 set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
+set history=100
+set undolevels=1000               "use muchos levels of undo
+set wildignore=*.swp,*.bak,*.pyc,*.class
+
+
 """"""""""""""""""
 " FORMATING
 """"""""""""""""""
+set pastetoggle=<F2>             " Press F2 before paste from clipboard
 set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
@@ -57,24 +64,29 @@ imap <S-Tab> <C-P>
 vmap <Tab> >gv
 vmap <S-Tab> <gv
 
+" Quickly edit/reload th vimrc file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>rv :so $MYVIMRC<CR> <bar> :echo ".vimrc reloaded"<CR>
+
+
 " Cmd+Enter like in textmate"
 imap <D-Enter> <Esc>A<CR> 
 
-"Most Recent Used Documents
-cmap mru <Esc>:MRU<CR>
-"let MRU_Max_Entries = 20 
- 
+
+" Remove a line like in Emacs
+imap <D-d> <Esc>ddi
+
 " gvim specific
 set mousehide  " Hide mouse after chars typed
 set mouse=a  " Mouse in all modes
-
 
 
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
 
-colorscheme jellybeans
+set background=dark "light is also available
+colorscheme solarized
 
 
 set guifont=Inconsolata:h18
@@ -94,13 +106,26 @@ map <leader>tm :tabmove
 set wildmode=list:longest
 
 
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
-map <Leader>t :FufFile<Enter>
+" FuzzyFinder plugin (D-T) has been mapped in gvimrc as well
+map <Leader>f :FufFile<Enter>
 
 " See the CTags (class and methods) belonging to the current buffer
-map <Leader>st :TlistToggle<Enter>
+map <Leader>t :TlistToggle<Enter>
 
+"""""""""""""""""""""""""""""""""""""""""""""      
+" => MRU Plugin (Most Recent Used Documents)
+"""""""""""""""""""""""""""""""""""""""""""""      
+let MRU_Max_Entries = 20 
+map <leader>r <Esc>:MRU<CR> "q(uit)
+
+"""""""""""""""""""""""""""""""""""""""""""""      
+" => See all open buffers
+"""""""""""""""""""""""""""""""""""""""""""""  
+"nnoremap <leader>b :ls<CR>:buffer<Space>
+map <leader>b <ESC><leader>be<CR>
+
+" Useful for those times where you forgot to sudo before editing a file
+cmap w!! w !sudo tee % > /dev/null
 
 
 " Automatic fold settings for specific files. Uncomment to use.
