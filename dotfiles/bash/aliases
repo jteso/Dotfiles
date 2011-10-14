@@ -4,7 +4,9 @@
 #----------------------
 # (A) Personal Aliases
 #----------------------
-alias cdp='cd ~/Development/rails_projects/first_app'
+alias :sinatra='cd ~/dev/sinatra'
+alias :blog='cd ~/dev/octopress/source'
+alias :rack='cd ~/dev/rack'
 alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
 alias du1='du -h --max-depth=1'

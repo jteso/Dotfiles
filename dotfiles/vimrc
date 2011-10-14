@@ -89,7 +89,7 @@ set background=dark "light is also available
 colorscheme solarized
 
 
-set guifont=Inconsolata:h18
+set guifont=Inconsolata:h16
 
 " Tab mappings 
 map <leader>tt :tabnew<cr>
@@ -110,7 +110,8 @@ set wildmode=list:longest
 map <Leader>f :FufFile<Enter>
 
 " See the CTags (class and methods) belonging to the current buffer
-map <Leader>t :TlistToggle<Enter>
+map <Leader>o :TlistToggle<Enter>
+     
 
 """""""""""""""""""""""""""""""""""""""""""""      
 " => MRU Plugin (Most Recent Used Documents)
@@ -122,18 +123,21 @@ map <leader>r <Esc>:MRU<CR> "q(uit)
 " => See all open buffers
 """""""""""""""""""""""""""""""""""""""""""""  
 "nnoremap <leader>b :ls<CR>:buffer<Space>
-map <leader>b <ESC><leader>be<CR>
+map <silent> <leader>b :BufExplorer<CR>
+
 
 " Useful for those times where you forgot to sudo before editing a file
 cmap w!! w !sudo tee % > /dev/null
 
+if has("gui_macvim")
+  let macvim_hig_shift_movement = 1
+endif
 
 " Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
-" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
+autocmd FileType ruby setlocal foldmethod=syntax
+autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
 
-"Swith between windows
-" TODO
+
 
 " For the MakeGreen plugin and Ruby RSpec. Uncomment to use.
 autocmd BufNewFile,BufRead *_spec.rb compiler rspec
