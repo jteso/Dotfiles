@@ -1,0 +1,14 @@
+How to install RVM
+------------------
+export ARCHFLAGS="-arch x86_64"
+
+brew install readline
+brew link readline
+brew install libxml2
+brew link libxml2
+
+rvm install 1.9.2 -C --with-readline-dir=/usr/local/Cellar/readline/6.2.1/ --with-libxml2-dir=/usr/local/Cellar/xml2/2.7.8
+
+
+
+

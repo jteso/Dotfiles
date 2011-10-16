@@ -1,0 +1,42 @@
+# Use Ruby Enterprise Edition as default
+rvm --default ree
+
+# In case you want to play with some rails 3
+rvm install 1.9.2
+
+# Backup of all your gems
+rvm gemset export backup.gems
+
+# Restore from backup
+rvm gemset import backup.gems
+
+# Delete all your gems from your system
+rvm gemset empty
+
+# Creating and using a gemset
+rvm gemset create foo or
+rvm use 1.9.2@foo --create #shortcut to create and then switch to it
+
+# use ruby 1.9.2 with gemset recently created
+rvm 1.9.2@foo or
+rvm gemset use foo
+ 
+gem list
+gem install rails
+
+# Switch to our global gemset
+rvm 1.9.2@global or
+just rvm 1.9.2
+
+# Global and Default gemsets
+~/.rvm/gemsets/global.gems # <-- gems here will be added to the global gemset in every new ruby you install (example: rake and rdoc)
+~/.rvm/gemsets/default.gems # <-- gemset included in every new gemset
+
+# rvmrc files
+/etc/rvmrc # System wide configuration
+~/.rvmrc # user wide configuration
+project/.rvmrc # Project wide configuration
+
+
+ 
+

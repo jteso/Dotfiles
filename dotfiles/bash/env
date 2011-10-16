@@ -73,5 +73,6 @@ HISTCONTROL=ignoreboth
 # -------------------------------------------------------------------
 # For Lion, Rubies should be built using gcc rather than llvm-gcc. Since /usr/bin/gcc is now linked to /usr/bin/llvm-gcc-4.2, add the following to
 #   your shell's start-up file: export CC=gcc-4.2
-
+[[ -s "/Users/Javi/.rvm/scripts/rvm" ]] && source "/Users/Javi/.rvm/scripts/rvm"
 export CC=/usr/bin/gcc-4.2
+export ARCHFLAGS="-arch x86_64"

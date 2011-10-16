@@ -1,0 +1,69 @@
+Navigation
+-----------
+gg top file
+w - forward a word
+b - back a word
+O - move to line start
+$ - move to end of line
+I - move cursor to first non blank character
+A - move cursor to end of line and insert mode
+o - insert a line below the current cursor position <D-CR>
+O - insert a line above the current cursor position
+
+Editing
+-------
+yy yank the current line
+yw - yank word (copy)
+y$ - yant until the end of line
+p pase
+c<motion> change (replace)
+cw change the word
+d<motion> delete (cut)
+:set paste - copy what it was in the clipboard
+<CTRL+V> (select block), I(nsert), #  - Commenting a block
+<CTRL+V> (select block), x            - Uncommenting a block
+
+Folding
+-------
+zR - open all folds
+zO - open all folds within a fold recursively
+zo - open a fold
+zc - close one fold
+zC - close all folds within a fold recursively
+zM - close all folds
+[z - Move to the start of the current open fold
+]z - Move to the end fo the current open fold
+zj - Move downwards between folds
+zk - Move upwards between folds
+
+Files
+-----
+\t - open fuzzyfinder
+\MRU - display latest 10 most recent files
+\be - see all open buffers [ENTER|d(elete)|q(uit)]
+
+Searching
+--------
+:%s/Curtis/Excalibur/gic - replace "curis for excalibur (Insensitive, Confirmation required)
+:noh - remove hightlightitn
+* - search for words like the one that is under the cursor
+/<your-word-to-search> - n(ext) p(revious)
+
+Tabs
+----
+:tabdo command - apply command to all open tabs
+<C-l> open match form fuzzyfinder
+:tabedit <file> open tab and creates or open that file
+
+
+:pwd
+:e file (with tab-completion capability)
+34G # Goes to the 34th line
+dd # remove line
+ctrol+t and ctrol+d # for tabulation f and b
+\t  => open a new file 
+\be, \b => See buffers being open (d: delete q:close)
+\o => Show CTgas
+CtrlW + o => Make current window the only one CtrlW+c (close) CtrolW+hjkl (direction) CtrolW+s (split horiz) CtrolW+h (split vertically)
+Ctrol+N => Autocompletion
+\cc (comment lines) \ci (toggle comments) \cu (uncomment)
