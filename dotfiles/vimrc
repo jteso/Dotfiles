@@ -105,6 +105,9 @@ map <leader>tm :tabmove
 " Tab-complete file names
 set wildmode=list:longest
 
+" RSense
+let g:rsenseUseOmniFunc = 1
+let g:rsenseHome = expand('~/bin/dotfiles/vim/plugin')
 
 " FuzzyFinder plugin (D-T) has been mapped in gvimrc as well
 map <Leader>f :FufFile<Enter>

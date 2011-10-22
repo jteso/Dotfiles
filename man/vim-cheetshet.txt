@@ -67,3 +67,9 @@ ctrol+t and ctrol+d # for tabulation f and b
 CtrlW + o => Make current window the only one CtrlW+c (close) CtrolW+hjkl (direction) CtrolW+s (split horiz) CtrolW+h (split vertically)
 Ctrol+N => Autocompletion
 \cc (comment lines) \ci (toggle comments) \cu (uncomment)
+
+
+TIPS & TRICKS
+=============
+
+YpVr=    #Subraya una linea con ====

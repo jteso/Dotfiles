@@ -37,6 +37,16 @@ just rvm 1.9.2
 ~/.rvmrc # user wide configuration
 project/.rvmrc # Project wide configuration
 
+#List
+rvm list gemsets #all available gemsets
+rvm list rubies  #all available rubies
+rvm list default #config used by default
 
+#create alias
+rvm alias create <mi-alias> <ruby@gemset>
+rvm use <mi-alias
+
+#list all available aliases
+rvm alias list
  
 

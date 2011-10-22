@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/Users'
-let g:netrw_dirhist_2='/Users/Javi'
-let g:netrw_dirhist_3='/Users/Javi/dev'
-let g:netrw_dirhist_4='/Users/Javi/dev/rack'
-let g:netrw_dirhist_5='/Users/Javi/bin/dotfiles'
-let g:netrw_dirhist_6='/Users/Javi/bin/dotfiles/vim'

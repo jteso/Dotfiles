@@ -1,0 +1,12 @@
+<project name="delete-svn" default="do-it" basedir=".">
+  <target name="do-it">
+    <delete includeemptydirs="true">
+      <fileset dir="." defaultexcludes="no">
+        <include name="**/.svn/" />
+        <include name="**/.metadata/" />
+      </fileset>
+    
+    </delete>
+  </target>
+
+</project>

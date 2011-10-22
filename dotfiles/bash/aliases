@@ -120,6 +120,11 @@ export ENVIRO='~/bin/dotfiles/bash/env'
 alias matea='mate $ALIASES'
 alias matee='mate $ENVIRO'
 
+#-------------------------------------------------------------
+# MacVim
+#-------------------------------------------------------------
+
+alias mm='mvim -p'
 
 # -------------------------------------------------------------------
 # DEVELOPMENT FUNCTIONS ==> LEARNING SOMEONE ELSE CODE
