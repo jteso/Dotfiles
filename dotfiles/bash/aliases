@@ -68,6 +68,12 @@ alias gits='git status'
 alias gitls='git ls-tree master^{tree}'        #showing trees
 alias gitlsr='git ls-tree -r -t master^{tree}' #showing trees recursively
 alias gitph='git push heroku master'
+
+#-------------------------------------------------------------
+# RVM
+#-------------------------------------------------------------
+alias rvmp='rvm list gemsets'
+
 #-------------------------------------------------------------
 # tailoring 'less'
 #-------------------------------------------------------------

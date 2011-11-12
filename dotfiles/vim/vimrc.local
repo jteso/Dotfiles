@@ -1,1 +1,21 @@
 color Railscasts
+
+"""""""""""""""""""""""""""""""""""""""""""""      
+" MRU Plugin (Most Recent Used Documents)
+"""""""""""""""""""""""""""""""""""""""""""""      
+let MRU_Max_Entries = 20 
+map <leader>f :MRU<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""" 
+" Personal preferences
+""""""""""""""""""""""""""""""""""""""""""""" 
+" Tab mappings 
+map <leader>tn :tabnew<cr>
+map <leader>te :tabedit
+map <leader>tc :tabclose<cr>
+
+" Cmd+Enter like in textmate"
+imap <D-Enter> <Esc>A<CR> 
+
+" Remove a line like in Emacs
+imap <D-d> <Esc>ddi

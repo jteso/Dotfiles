@@ -8,7 +8,7 @@ class Hitman
       find_pids_by_name(process).each {|pid|
         `kill -9 #{pid}` 
         num_victims += 1
-      }
+      } 
       puts "#{num_victims} process(es) under the name #{process} have been terminated."
     end
     def find_pids_by_name(process)
@@ -16,7 +16,7 @@ class Hitman
       pids_to_die = [];
       lines.each {|line|
         pids_to_die << line.split()[1]
-      } 
+      } unless lines.empty?
       pids_to_die
     end
   end

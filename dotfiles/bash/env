@@ -27,6 +27,7 @@ PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin"
 PATH="/usr/local/bin:$PATH"
 PATH=$GIT_HOME/bin:$JAVA_HOME/bin:$GOOGLE_APP_ENGINE/bin:$HADOOP_HOME/bin:$CXF_HOME/bin:$HBASE_HOME/bin:$MY_GEMS/bin:$ANT_HOME/bin:$GROOVY_HOME/bin:$GRAILS_HOME/bin:$NODE_JS_HOME:$ROO_HOME/bin:$PATH
 PATH=$PATH:$ANDROID_TOOLS:$ANDROID_PLATFORM_TOOLS
+PATH="$PATH:/usr/local/mysql/bin"
 
 # put ~/bin on PATH if you have it
 test -d "$HOME/bin" &&
@@ -76,3 +77,5 @@ HISTCONTROL=ignoreboth
 [[ -s "/Users/Javi/.rvm/scripts/rvm" ]] && source "/Users/Javi/.rvm/scripts/rvm"
 export CC=/usr/bin/gcc-4.2
 export ARCHFLAGS="-arch x86_64"
+# mysql dependency
+export DYLD_LIBRARY_PATH="/usr/local/mysql/lib:$DYLD_LIBRARY_PATH"

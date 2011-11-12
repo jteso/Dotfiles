@@ -22,6 +22,7 @@ d<motion> delete (cut)
 :set paste - copy what it was in the clipboard
 <CTRL+V> (select block), I(nsert), #  - Commenting a block
 <CTRL+V> (select block), x            - Uncommenting a block
+:5,10Align => to align lines 5-10 on =>'s
 
 Folding
 -------
@@ -37,13 +38,15 @@ zj - Move downwards between folds
 zk - Move upwards between folds
 
 Files
------
-\t - open fuzzyfinder
-\MRU - display latest 10 most recent files
+=====
+\t or Cmd-t  --- open fuzzyfinder
+\e or \te --- edit a new file
+\MRU or \f - display latest 10 most recent files
 \be - see all open buffers [ENTER|d(elete)|q(uit)]
+\n --- open nerd tree
 
 Searching
---------
+=========
 :%s/Curtis/Excalibur/gic - replace "curis for excalibur (Insensitive, Confirmation required)
 :noh - remove hightlightitn
 * - search for words like the one that is under the cursor
@@ -52,7 +55,6 @@ Searching
 Tabs
 ----
 :tabdo command - apply command to all open tabs
-<C-l> open match form fuzzyfinder
 :tabedit <file> open tab and creates or open that file
 
 
@@ -61,9 +63,7 @@ Tabs
 34G # Goes to the 34th line
 dd # remove line
 ctrol+t and ctrol+d # for tabulation f and b
-\t  => open a new file 
-\be, \b => See buffers being open (d: delete q:close)
-\o => Show CTgas
+
 CtrlW + o => Make current window the only one CtrlW+c (close) CtrolW+hjkl (direction) CtrolW+s (split horiz) CtrolW+h (split vertically)
 Ctrol+N => Autocompletion
 \cc (comment lines) \ci (toggle comments) \cu (uncomment)
@@ -73,3 +73,32 @@ TIPS & TRICKS
 =============
 
 YpVr=    #Subraya una linea con ====
+
+
+
+PLUGINS
+=======
+
+>>>>>  SURROUNDINGS <<<<<<<
+
+Normal mode
+-----------
+ds  - delete a surrounding
+cs  - change a surrounding
+ys  - add a surrounding
+yS  - add a surrounding and place the surrounded text on a new line + indent it
+yss - add a surrounding to the whole line
+ySs - add a surrounding to the whole line, place it on a new line + indent it
+ySS - same as ySs
+
+Visual mode
+-----------
+s   - in visual mode, add a surrounding
+S   - in visual mode, add a surrounding but place text on new line + indent it
+
+Insert mode
+-----------
+<CTRL-s> - in insert mode, add a surrounding
+<CTRL-s><CTRL-s> - in insert mode, add a new line + surrounding + indent
+<CTRL-g>s - same as <CTRL-s>
+<CTRL-g>S - same as <CTRL-s><CTRL-s>
